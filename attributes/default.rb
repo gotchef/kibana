@@ -1,7 +1,7 @@
 #
 default['kibana']['version'] = '3'
 default['kibana']['kibana3_version'] = '3.1.2'
-default['kibana']['base_dir'] = '/srv/kibana/current'
+default['kibana']['base_dir'] = '/srv/kibana'
 default['kibana']['user'] = 'kibana'
 default['kibana']['group'] = 'kibana'
 default['kibana']['url'] = "https://download.elasticsearch.org/kibana/kibana/kibana-#{node['kibana']['kibana3_version']}.tar.gz"

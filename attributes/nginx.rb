@@ -8,7 +8,7 @@ default['kibana']['nginx']['server_name'] = 'kibana'
 default['kibana']['nginx']['logfile_name'] = 'kibana'
 default['kibana']['nginx']['log_dir'] = '/var/log/nginx/kibana'
 default['kibana']['nginx']['log_format'] = 'json'
-default['kibana']['nginx']['root'] = node['kibana']['base_dir']
+default['kibana']['nginx']['root'] = node['kibana']['base_dir'] + "/current"
 default['kibana']['nginx']['cookbook'] = 'kibana'
 
 default['kibana']['nginx']['client_max_body'] = '50M'
