@@ -22,7 +22,7 @@ server {
 
   client_max_body_size <%= @client_max_body %>;
 
-  error_log   <%= @log_dir %>/<%= @logfile_name %>-errors.log <%= @log_format %>;
+  error_log   <%= @log_dir %>/<%= @logfile_name %>-errors.log ;
   access_log  <%= @log_dir %>/<%= @logfile_name %>.log <%= @log_format %>;
 
   location / {
