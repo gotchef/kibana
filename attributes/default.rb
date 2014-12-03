@@ -8,7 +8,7 @@ default['kibana']['url'] = "https://download.elasticsearch.org/kibana/kibana/kib
 default['kibana']['checksum'] = 'df25bc0cc02385edcac446ef8cbd83b896cdc910a0fa1b0a7bd2a958164593a8'
 
 #default['kibana']['interface'] = node['ipaddress']
-default['kibana']['port'] = 5601
+default['kibana']['port'] = 4222
 
 default['kibana']['elasticsearch']['hosts'] = ['127.0.0.1']
 default['kibana']['elasticsearch']['port'] = 9200

@@ -1,3 +1,13 @@
+upstream elasticsearch {
+<%- if node[:stack]['es-master'][:ips].length > 0 %>
+	<%- node[:stack]['es-master'][:ips].each_with_index do |addr, idx| %>
+	server <%= addr %>:9200 max_fails=1 fail_timeout=10s;
+	<%- end %>
+<%- else %>
+	server localhost:9200;
+<%- end %>
+}
+
 <% if @ssl %>
 server {
   listen      <%= @listen_http %>;
@@ -32,5 +42,35 @@ server {
     auth_basic "Kibana Auth";
     auth_basic_user_file <%= @auth_file %>;
     <% end %>
+  }
+
+  location ~ ^/_aliases$ {
+    proxy_pass http://elasticsearch;
+    proxy_read_timeout 90;
+  }
+  location ~ ^/.*/_aliases$ {
+    proxy_pass http://elasticsearch;
+    proxy_read_timeout 90;
+  }
+  location ~ ^/_nodes$ {
+    proxy_pass http://elasticsearch;
+    proxy_read_timeout 90;
+  }
+  location ~ ^/.*/_search$ {
+    proxy_pass http://elasticsearch;
+    proxy_read_timeout 90;
+  }
+  location ~ ^/.*/_mapping {
+    proxy_pass http://elasticsearch;
+    proxy_read_timeout 90;
+  }
+
+  location ~ ^/kibana-int/dashboard/.*$ {
+    proxy_pass http://elasticsearch;
+    proxy_read_timeout 90;
+  }
+  location ~ ^/kibana-int/temp.*$ {
+    proxy_pass http://elasticsearch;
+    proxy_read_timeout 90;
   }
 }
