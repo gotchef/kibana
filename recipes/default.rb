@@ -5,7 +5,6 @@
 # Copyright (c) 2014 The Authors, All Rights Reserved.
 
 include_recipe 'ark'
-include_recipe 'aws-util::opsworks_hosts'
 
 group node['kibana']['group'] do
 end

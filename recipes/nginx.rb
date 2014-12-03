@@ -1,3 +1,7 @@
+#
+# kibana::nginx
+
+include_recipe 'aws-util::opsworks_hosts'
 
 runit_service "nginx" do
   action :nothing # only define so that it can be restarted if the config changed
@@ -11,6 +15,9 @@ directory node['kibana']['nginx']['log_dir'] do
 end
 
 config_path = 'kibana.conf'
+
+es_layer = node['kibana']['layer']['elasticsearch']
+node.normal['kibana']['nginx']['es_hosts'] = default[:stack][es_layer][:ips] 
 
 template File.join(node['kibana']['nginx']['config_dir'], config_path) do
 	cookbook node['kibana']['nginx']['cookbook']

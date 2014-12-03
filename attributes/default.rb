@@ -23,5 +23,4 @@ default['kibana']['highlighted_field'] = '@message'
 default['kibana']['primary_field'] = '@message'
 default['kibana']['default_index'] = '@message'
 
-default[:stack]['es-master'][:ips] =  ['127.0.0.1']
 
