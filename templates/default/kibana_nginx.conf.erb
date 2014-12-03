@@ -1,6 +1,6 @@
 upstream elasticsearch {
-<%- if node[:stack]['es-master'][:ips].length > 0 %>
-	<%- node[:stack]['es-master'][:ips].each_with_index do |addr, idx| %>
+<%- if @es_hosts.length > 0 %>
+	<%- @es_hosts.each_with_index do |addr, idx| %>
 	server <%= addr %>:9200 max_fails=1 fail_timeout=10s;
 	<%- end %>
 <%- else %>
