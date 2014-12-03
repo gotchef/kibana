@@ -17,7 +17,7 @@ end
 config_path = 'kibana.conf'
 
 es_layer = node['kibana']['layer']['elasticsearch']
-node.normal['kibana']['nginx']['es_hosts'] = default[:stack][es_layer][:ips] 
+node.normal['kibana']['nginx']['es_hosts'] = node[:stack][es_layer][:ips] 
 
 template File.join(node['kibana']['nginx']['config_dir'], config_path) do
 	cookbook node['kibana']['nginx']['cookbook']
