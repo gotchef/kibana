@@ -1,4 +1,7 @@
 
+runit_service "nginx" do
+  action :nothing # only define so that it can be restarted if the config changed
+end
 
 directory node['kibana']['nginx']['log_dir'] do
 	mode '0755'
@@ -16,6 +19,7 @@ template File.join(node['kibana']['nginx']['config_dir'], config_path) do
 	group node['kibana']['group']
 	mode '0644'
 	variables node['kibana']['nginx']
+	notifies :restart, "runit_service[nginx]"
 end
 
 
