@@ -15,7 +15,7 @@ template File.join(node['kibana']['nginx']['config_dir'], config_path) do
 	owner node['kibana']['user']
 	group node['kibana']['group']
 	mode '0644'
-	variables(node['kibana']['nginx'])
+	variables node['kibana']['nginx']
 end
 
 

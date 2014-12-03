@@ -6,7 +6,6 @@ default['kibana']['user'] = 'kibana'
 default['kibana']['group'] = 'kibana'
 default['kibana']['url'] = "https://download.elasticsearch.org/kibana/kibana/kibana-#{node['kibana']['kibana3_version']}.tar.gz"
 default['kibana']['checksum'] = 'df25bc0cc02385edcac446ef8cbd83b896cdc910a0fa1b0a7bd2a958164593a8'
-default['kibana']['git']['url'] = 'https://github.com/elasticsearch/kibana.git'
 
 #default['kibana']['interface'] = node['ipaddress']
 default['kibana']['port'] = 5601

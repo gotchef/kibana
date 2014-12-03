@@ -6,3 +6,5 @@ description      'Installs/Configures kibana'
 long_description 'Installs/Configures kibana'
 version          '0.1.0'
 
+
+depends 'ark'
