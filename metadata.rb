@@ -8,3 +8,4 @@ version          '0.1.0'
 
 
 depends 'ark'
+depends 'aws-util'
